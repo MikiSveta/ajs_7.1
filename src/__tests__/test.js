@@ -1,45 +1,41 @@
-import getSpecAttack from '../app';
+import Validator from '../app';
 
-test('should return special attack', () => {
-  const input = {
-    name: 'Лучник',
-    type: 'Bowman',
-    health: 50,
-    level: 3,
-    attack: 40,
-    defence: 10,
-    special: [
-      {
-        id: 8,
-        name: 'Двойной выстрел',
-        icon: 'http://...',
-        description: 'Двойной выстрел наносит двойной урон',
-      },
-      {
-        id: 9,
-        name: 'Нокаутирующий удар',
-        icon: 'http://...',
-        // <- обратите внимание, описание "засекречено"
-      },
-    ],
-  };
+test('check userName', () => {
+  const result = new Validator('for123-sort').validateUsername();
+  expect(result).toBe(true);
+});
 
-  const expected = [
-    {
-      id: 8,
-      name: 'Двойной выстрел',
-      icon: 'http://...',
-      description: 'Двойной выстрел наносит двойной урон',
-    },
-    {
-      id: 9,
-      name: 'Нокаутирующий удар',
-      icon: 'http://...',
-      description: 'Описание недоступно',
-    },
-  ];
+test('- at the beginning', () => {
+  const result = new Validator('-for123-sort').validateUsername();
+  expect(result).toBe(false);
+});
 
-  const received = getSpecAttack(input);
+test('- at the end', () => {
+  const result = new Validator('for123-sort-').validateUsername();
+  expect(result).toBe(false);
+});
 
-  expect(received).toEqual(expected);
+test('_ at the beginning', () => {
+  const result = new Validator('_for123-sort').validateUsername();
+  expect(result).toBe(false);
+});
+
+test('_ at the end', () => {
+  const result = new Validator('for123-sort_').validateUsername();
+  expect(result).toBe(false);
+});
+
+test('1 at the beginning', () => {
+  const result = new Validator('1for123-sort').validateUsername();
+  expect(result).toBe(false);
+});
+
+test('1 at the end', () => {
+  const result = new Validator('for123-sort1').validateUsername();
+  expect(result).toBe(false);
+});
+
+test('more than 3 numbers', () => {
+  const result = new Validator('for12345-sort').validateUsername();
+  expect(result).toBe(false);
 });

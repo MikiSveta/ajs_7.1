@@ -1,16 +1,14 @@
-export default function getSpecAttack({ special }) {
-  const result = [];
+export default class Validator {
+  constructor(name) {
+    this.name = name;
+  }
 
-
-  special.forEach((item) => {
-    const data = { ...item };
-
-    if (!data.description) {
-      data.description = 'Описание недоступно';
+  validateUsername() {
+    const valid = /^[^\d_-][\w-]*[^\d_-]$/.test(this.name);
+    const valid2 = !(/\d{4}/.test(this.name));
+    if (valid && valid2) {
+      return true;
     }
-
-    result.push(data);
-  });
-
-  return result;
+    return false;
+  }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "ajs_6.2",
+  "name": "ajs_7",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -16,18 +16,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MikiSveta/ajs_6.2.git"
+    "url": "git+https://github.com/MikiSveta/ajs_7.git"
   },
   "author": "MikiSveta",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MikiSveta/ajs_6.2/issues"
+    "url": "https://github.com/MikiSveta/ajs_7/issues"
   },
-  "homepage": "https://github.com/MikiSveta/ajs_6.2#readme",
+  "homepage": "https://github.com/MikiSveta/ajs_7#readme",
   "devDependencies": {
-    "@babel/cli": "^7.16.0",
-    "@babel/core": "^7.16.5",
-    "@babel/preset-env": "^7.16.5",
+    "@babel/cli": "^7.16.8",
+    "@babel/core": "^7.16.12",
+    "@babel/preset-env": "^7.16.11",
     "babel-jest": "^25.5.1",
     "babel-loader": "^8.1.0",
     "css-loader": "^3.5.3",
@@ -44,6 +44,6 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
-    "core-js": "^3.20.2"
+    "core-js": "^3.20.3"
   }
 }
